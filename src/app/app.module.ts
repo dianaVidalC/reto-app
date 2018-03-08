@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 
 export function getAuthServiceConfigs() {
-  const config = new AuthServiceConfig(
+  let config = new AuthServiceConfig(
       [
         {
           id: FacebookLoginProvider.PROVIDER_ID,
@@ -14,7 +14,7 @@ export function getAuthServiceConfigs() {
         },
         {
           id: GoogleLoginProvider.PROVIDER_ID,
-          provider: new GoogleLoginProvider('1067092725405-6amjpbcq1l3kt9046oglsa6jh78jl3hn.apps.googleusercontent.com')
+          provider: new GoogleLoginProvider('1067092725405-ej0q5emosoae6duq0np3emcot8l044ae.apps.googleusercontent.com')
         },
       ]);
   return config;
