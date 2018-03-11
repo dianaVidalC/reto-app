@@ -1,0 +1,23 @@
+/*navbar*/
+.explorer{
+    position: absolute;
+    top: 1.5em;
+    left: 4em;
+    font-size: 0.9em;
+    color: aqua;
+}
+.menu{
+    position: relative;
+    width: 100%;
+    background-color: gray;
+}
+.icon-menu,
+.icon-next{
+    height: 1.4em;
+    color: white;
+    padding-right: 1em;
+}
+.icon-next{
+    position: absolute;
+    right: 0;
+}

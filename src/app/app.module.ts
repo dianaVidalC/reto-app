@@ -4,6 +4,7 @@ import { SocialLoginModule, AuthServiceConfig, GoogleLoginProvider, FacebookLogi
 import { Routes, RouterModule } from '@angular/router';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { HttpClientModule } from '@angular/common/http';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -13,12 +14,7 @@ import { CircleGraficoComponent } from './vistas/circle-grafico/circle-grafico.c
 import { LinesGraficoComponent } from './vistas/lines-grafico/lines-grafico.component';
 import { VistaComponent } from './vistas/vista/vista.component';
 import { CuentasComponent } from './vistas/cuentas/cuentas.component';
-
-const routes: Routes = [
-  { path: '', component: LoginComponent },
-  { path: 'vistas', component: VistasComponent },
-  { path: 'cuentas', component: CuentasComponent }
-];
+import { AppRoutingModule } from './/app-routing.module';
 
 export function getAuthServiceConfigs() {
   const config = new AuthServiceConfig(
@@ -48,9 +44,10 @@ export function getAuthServiceConfigs() {
   imports: [
     BrowserModule,
     SocialLoginModule,
-    RouterModule.forRoot(routes),
     MDBBootstrapModule.forRoot(),
-    HttpClientModule
+    HttpClientModule,
+    NgbModule.forRoot(),
+    AppRoutingModule
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
   exports: [

@@ -1,3 +1,88 @@
-<p>
-  cuentas works!
-</p>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse menu" id="navbarSupportedContent">
+        <a class="navbar-brand text-light">
+            <img src="/assets/brand/bootstrap-solid.svg" width="70" height="70" class="d-inline-block align-top" alt=""><span>Jane Smith <span class="explorer">Explorer</span></span>
+        </a>
+      <ul class="navbar-nav mr-auto">
+        <li class="bg-dark" style="height:3em"></li>
+        <li class="nav-item active">
+          <a class="nav-link text-light">
+            <img class="icon-menu" src="../../assets/images/speedometer-tool.svg">
+            Dashboard
+            <img class="icon-next" src="../../assets/images/next.svg">
+        </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-light" routerLink="/cuentas">
+            <img class="icon-menu" src="../../assets/images/accounting.svg">
+            My Accounts
+            <img class="icon-next" src="../../assets/images/next.svg">
+        </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-light">
+            <img class="icon-menu" src="../../assets/images/star.svg">
+            Credit card
+            <img class="icon-next" src="../../assets/images/next.svg">
+        </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-light">
+              <img class="icon-menu" src="../../assets/images/chat.svg">
+              Messages
+              <img class="icon-next" src="../../assets/images/next.svg">
+          </a>
+        </li>
+        <li style="height:5em"></li>
+        <li class="bg-dark" style="height:3em"></li>
+        <li class="nav-item">
+            <a class="nav-link text-light">
+              <img class="icon-menu" src="../../assets/images/settings-work-tool.svg">
+              Settings
+              <img class="icon-next" src="../../assets/images/next.svg">
+          </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-light">
+              <img class="icon-menu" src="../../assets/images/padlock.svg">
+              Privacy & terms
+              <img class="icon-next" src="../../assets/images/next.svg">
+          </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-light">
+              <img class="icon-menu" src="../../assets/images/logout.svg">
+              Logout
+          </a>
+        </li>
+        <li style="height:1em"></li>
+      </ul>
+    </div>
+</nav>
+<ngb-carousel>
+    <ng-template ngbSlide>
+      <img class="fluid-images" src="../../../assets/images/card1.png" alt="Random first slide">
+      <div class="carousel-caption">
+        <h3>First slide label</h3>
+        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+      </div>
+    </ng-template>
+    <ng-template ngbSlide>
+      <img class="fluid-images" src="../../../assets/images/card2 .png" alt="Random second slide">
+      <div class="carousel-caption">
+        <h3>Second slide label</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      </div>
+    </ng-template>
+    <ng-template ngbSlide>
+      <img class="fluid-images" src="../../../assets/images/card3.png" alt="Random third slide">
+      <div class="carousel-caption">
+        <h3>Third slide label</h3>
+        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+      </div>
+    </ng-template>
+</ngb-carousel>

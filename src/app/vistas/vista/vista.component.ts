@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ClusterService } from '../../cluster.service';
+import { AppRoutingModule } from '../../app-routing.module';
 
 @Component({
   selector: 'app-vista',
