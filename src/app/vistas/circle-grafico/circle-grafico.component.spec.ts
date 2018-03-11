@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GraficosComponent } from './graficos.component';
+import { CircleGraficoComponent } from './circle-grafico.component';
 
-describe('GraficosComponent', () => {
-  let component: GraficosComponent;
-  let fixture: ComponentFixture<GraficosComponent>;
+describe('CircleGraficoComponent', () => {
+  let component: CircleGraficoComponent;
+  let fixture: ComponentFixture<CircleGraficoComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ GraficosComponent ]
+      declarations: [ CircleGraficoComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(GraficosComponent);
+    fixture = TestBed.createComponent(CircleGraficoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

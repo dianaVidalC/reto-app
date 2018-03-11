@@ -1,16 +1,23 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, NO_ERRORS_SCHEMA  } from '@angular/core';
 import { SocialLoginModule, AuthServiceConfig, GoogleLoginProvider, FacebookLoginProvider} from 'angular5-social-login';
-import { ChartsModule } from 'ng2-charts'; // gráficos
 import { Routes, RouterModule } from '@angular/router';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
-import { GraficosComponent } from './graficos/graficos.component';
+import { VistasComponent } from './vistas/vistas.component';
+import { ClusterService } from './cluster.service';
+import { CircleGraficoComponent } from './vistas/circle-grafico/circle-grafico.component';
+import { LinesGraficoComponent } from './vistas/lines-grafico/lines-grafico.component';
+import { VistaComponent } from './vistas/vista/vista.component';
+import { CuentasComponent } from './vistas/cuentas/cuentas.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
-  { path: 'graficos', component: GraficosComponent }
+  { path: 'vistas', component: VistasComponent },
+  { path: 'cuentas', component: CuentasComponent }
 ];
 
 export function getAuthServiceConfigs() {
@@ -32,14 +39,20 @@ export function getAuthServiceConfigs() {
   declarations: [
     AppComponent,
     LoginComponent,
-    GraficosComponent
+    VistasComponent,
+    CircleGraficoComponent,
+    LinesGraficoComponent,
+    VistaComponent,
+    CuentasComponent,
   ],
   imports: [
     BrowserModule,
     SocialLoginModule,
-    ChartsModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    MDBBootstrapModule.forRoot(),
+    HttpClientModule
   ],
+  schemas: [ NO_ERRORS_SCHEMA ],
   exports: [
     RouterModule
   ],
@@ -47,7 +60,8 @@ export function getAuthServiceConfigs() {
     {
       provide: AuthServiceConfig,
       useFactory: getAuthServiceConfigs
-    }
+    },
+    ClusterService
   ],
   bootstrap: [AppComponent]
 })
