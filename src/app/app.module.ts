@@ -4,7 +4,12 @@ import { SocialLoginModule, AuthServiceConfig, GoogleLoginProvider, FacebookLogi
 import { Routes, RouterModule } from '@angular/router';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { HttpClientModule } from '@angular/common/http';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { OWL_DATE_TIME_LOCALE } from 'ng-pick-datetime';
+
+import { NgxCarouselModule } from 'ngx-carousel';
+import 'hammerjs';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -39,27 +44,29 @@ export function getAuthServiceConfigs() {
     CircleGraficoComponent,
     LinesGraficoComponent,
     VistaComponent,
-    CuentasComponent,
+    CuentasComponent
   ],
   imports: [
     BrowserModule,
     SocialLoginModule,
     MDBBootstrapModule.forRoot(),
     HttpClientModule,
-    NgbModule.forRoot(),
-    AppRoutingModule
+    NgxCarouselModule,
+    AppRoutingModule,
+    OwlDateTimeModule,
+    OwlNativeDateTimeModule,
+    BrowserAnimationsModule,
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
   exports: [
     RouterModule
   ],
   providers: [
-    {
-      provide: AuthServiceConfig,
-      useFactory: getAuthServiceConfigs
-    },
-    ClusterService
-  ],
+    { provide: AuthServiceConfig, useFactory: getAuthServiceConfigs },
+    ClusterService,
+    { provide: OWL_DATE_TIME_LOCALE, useValue: 'es'}
+
+    ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
