@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService, FacebookLoginProvider, GoogleLoginProvider } from 'angular5-social-login';
+import { ClusterService, UserData } from '../cluster.service';
 
 @Component({
   selector: 'app-login',
@@ -7,6 +8,8 @@ import { AuthService, FacebookLoginProvider, GoogleLoginProvider } from 'angular
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+
+  Data: UserData[];
 
   constructor(private socialAuthService: AuthService) { }
   ngOnInit() {
@@ -20,7 +23,9 @@ export class LoginComponent implements OnInit {
     }
 
     this.socialAuthService.signIn(socialPlatformProvider).then(
-      (userData) => {console.log(socialPlatform + ' sign in data : ', userData);
+      (userData) => {
+        this.Data = userData;
+        console.log(socialPlatform + ' sign in data : ', userData  );
       }
     );
   }

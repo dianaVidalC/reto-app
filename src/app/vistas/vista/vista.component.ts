@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ClusterService } from '../../cluster.service';
 import { AppRoutingModule } from '../../app-routing.module';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-vista',
@@ -9,24 +10,39 @@ import { AppRoutingModule } from '../../app-routing.module';
 })
 export class VistaComponent implements OnInit {
 
-  datos: any = [];
-
+  listaCta = [];
+  listaTarj = [];
+  gastos: number;
   constructor( private clusterService: ClusterService ) {}
 
   ngOnInit() {
-      this.getClusters();
+      this.getListas();
+      this.getGastos();
   }
-
-  getClusters(): void {
-      this.clusterService.getClusters().subscribe(
+  getListas(): void {
+      this.clusterService.getListasTarj()
+      .subscribe(
           res => {
-              this.datos = res['DATA'];
-              console.log(this.datos.LISTA_CTA[0].SALDO);
+              this.listaCta = res;
           },
           err => {
               console.log(err);
           }
       );
   }
+  getGastos(): void {
+    this.clusterService.getListasTarj()
+    .subscribe(
+        res => {
+            this.listaTarj = res;
+            const limCred = (this.listaTarj.map(e => e.LIMITECREDITO)).toString().replace(/\,/g, '');
+            const cred = (this.listaTarj.map(e => e.CREDITODISPONIBLE)).toString().replace(/\,/g, '');
+            this.gastos = Number(limCred) - Number(cred);
+        },
+        err => {
+            console.log(err);
+        }
+    );
+}
 
 }
