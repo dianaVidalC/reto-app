@@ -10,23 +10,14 @@ import { catchError, map, tap, filter } from 'rxjs/operators';
   saldo: number;
   moneda: string;
 } */
-export interface ListaTarj {
+/* export interface ListaTarj {
   numeroTarj: number;
   tipoTarj: string;
   credito: number;
   limiteCred: number;
   currency: string;
   class: string;
-}
-export interface UserData {
-  email: string;
-  id: string;
-  idtoken: string;
-  imagen: string;
-  name: string;
-  provider: string;
-  token: string;
-}
+} */
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -56,9 +47,16 @@ export class ClusterService {
     );
   }
   getMovimientos(): Observable<any> {
-    return this.http.get(this.movimientosUrl);
+    return this.http.get(this.movimientosUrl)
+    .pipe(
+      map(e => e['DATA'])
+    );
   }
   getUbicacion(): Observable<any> {
-    return this.http.get(this.ubicacionUrl);
+    return this.http.get(this.ubicacionUrl)
+    .pipe(
+      map(e => e['Data'])
+    );
   }
 }
+

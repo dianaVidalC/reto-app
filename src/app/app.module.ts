@@ -1,13 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, NO_ERRORS_SCHEMA  } from '@angular/core';
-import { SocialLoginModule, AuthServiceConfig, GoogleLoginProvider, FacebookLoginProvider} from 'angular5-social-login';
+import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { HttpClientModule } from '@angular/common/http';
 import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { OWL_DATE_TIME_LOCALE } from 'ng-pick-datetime';
-
+import { SocialLoginModule, AuthServiceConfig } from 'angularx-social-login';
+import { GoogleLoginProvider, FacebookLoginProvider } from 'angularx-social-login';
+import { AgmCoreModule } from '@agm/core';
 import { NgxCarouselModule } from 'ngx-carousel';
 import 'hammerjs';
 
@@ -20,21 +21,19 @@ import { LinesGraficoComponent } from './vistas/lines-grafico/lines-grafico.comp
 import { VistaComponent } from './vistas/vista/vista.component';
 import { CuentasComponent } from './vistas/cuentas/cuentas.component';
 import { AppRoutingModule } from './/app-routing.module';
+import { SocialService } from './social.service';
+import { SedesComponent } from './vistas/sedes/sedes.component';
 
-export function getAuthServiceConfigs() {
-  const config = new AuthServiceConfig(
-      [
-        {
-          id: FacebookLoginProvider.PROVIDER_ID,
-          provider: new FacebookLoginProvider('451807981901236')
-        },
-        {
-          id: GoogleLoginProvider.PROVIDER_ID,
-          provider: new GoogleLoginProvider('108133021819-11r37mu0lofl5sh9p101eesacitqo3lt.apps.googleusercontent.com')
-        },
-      ]);
-  return config;
-}
+const config = new AuthServiceConfig([
+  {
+    id: GoogleLoginProvider.PROVIDER_ID,
+    provider: new GoogleLoginProvider('108133021819-11r37mu0lofl5sh9p101eesacitqo3lt.apps.googleusercontent.com')
+  },
+  {
+    id: FacebookLoginProvider.PROVIDER_ID,
+    provider: new FacebookLoginProvider('451807981901236')
+  }
+]);
 
 @NgModule({
   declarations: [
@@ -44,11 +43,11 @@ export function getAuthServiceConfigs() {
     CircleGraficoComponent,
     LinesGraficoComponent,
     VistaComponent,
-    CuentasComponent
+    CuentasComponent,
+    SedesComponent
   ],
   imports: [
     BrowserModule,
-    SocialLoginModule,
     MDBBootstrapModule.forRoot(),
     HttpClientModule,
     NgxCarouselModule,
@@ -56,14 +55,18 @@ export function getAuthServiceConfigs() {
     OwlDateTimeModule,
     OwlNativeDateTimeModule,
     BrowserAnimationsModule,
+    SocialLoginModule.initialize(config),
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyAqmsL_SqZTV-9RqqjakrxGnFRQUJvy4gI'
+    })
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
   exports: [
     RouterModule
   ],
   providers: [
-    { provide: AuthServiceConfig, useFactory: getAuthServiceConfigs },
     ClusterService,
+    SocialService,
     { provide: OWL_DATE_TIME_LOCALE, useValue: 'es'}
 
     ],

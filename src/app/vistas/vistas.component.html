@@ -5,7 +5,7 @@
   
     <div class="collapse navbar-collapse menu" id="navbarSupportedContent">
         <a class="navbar-brand text-light">
-            <img src="../../assets/images/chat.svg" width="50" height="50" class="d-inline-block align-top" alt=""><span>Jane Smith <span class="explorer">Explorer</span></span>
+            <img src={{data?.photoUrl}} width="50" height="50" class="d-inline-block align-top" alt=""><span>{{data?.name}}<span class="explorer">Explorer</span></span>
         </a>
       <ul class="navbar-nav mr-auto">
         <li class="bg-dark" style="height:3em"></li>
@@ -34,6 +34,13 @@
             <a class="nav-link text-light">
               <img class="icon-menu" src="../../assets/images/chat.svg">
               Messages
+              <img class="icon-next" src="../../assets/images/next.svg">
+          </a>
+        </li>
+        <li class="nav-item" routerLink="/sedes">
+            <a class="nav-link text-light">
+              <img class="icon-menu" src="../../assets/images/point.svg">
+              Sedes
               <img class="icon-next" src="../../assets/images/next.svg">
           </a>
         </li>

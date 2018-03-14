@@ -5,14 +5,14 @@
   }
 
 .icono-login{
-    margin: 5rem 0;
+    margin: 2.5rem 0;
 }
 
-.boton-login{
+.social-login{
     text-align: center;
     padding: 0 2em;
 }
-.boton-login button{
+.social-login button{
     margin: 0.5em 0;
     color: #ffffff;
 }
@@ -22,6 +22,7 @@
     border-radius: 0%;
     width: 100%;
     font-size: 12px;
+    text-transform: capitalize;
 }
 .face-btn{
     background: #4267B2;
@@ -30,10 +31,16 @@
     background-color: #db3236;
 }
 
-.boton-login img{
-    height: 1.5em;
+.social-login span{
     margin-right: 0.5em;
 }
+.user-login{
+    margin-top: 5em;
+}
+.photo {
+object-fit: contain;
+}
+   
 footer{
     position: absolute;
     font-size: 10px;

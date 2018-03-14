@@ -53,13 +53,21 @@
 }
 .card{
     margin:1em 2em;
-    font-size: 12px;
-    img{
-        height: 3em;
+    font-size: 11px;
+    text-align: center;
+    .card-body{
+        display: flex; 
+        flex-direction: row;
+        justify-content: space-around;
+        img{
+            height: 3em;
+        }
+        .text-style{
+            margin: 0;
+            text-transform: capitalize;
+        }
     }
-    p{
-        margin: 0;
-    }
+   
 }
 /*calendar*/
 .icon-calendar{

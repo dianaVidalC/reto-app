@@ -1,12 +1,23 @@
-<section class="login">
-<div class="icono-login" style="text-align:center">
-    <img class="img-fluid" src="../assets/images/bbva-app.png" alt="bbva logo">
+<div class=" text-center">
+    <div *ngIf="!user" class="text-center">
+      <img class="fluid-images icono-login" src="../../assets/images/bbva-app.png" alt="bbva app">
+      <div class="social-login">
+        <button class="btn btn-social-icon face-btn" (click)="signInWithFB()"><span class="fa fa-facebook"></span>Sign in witch Facebook</button>
+        <button class="btn btn-social-icon goo-btn" (click)="signInWithGoogle()"><span class="fa fa-google"></span> Sign in witch Google</button>
+      </div>
+    </div>
+    <div *ngIf="user" class="user-login text-center">
+      <img class="fluid-responsive photo" src="{{ user.photoUrl }}">
+      <div class="">
+        <h4 class="">{{ user.name }}</h4>
+        <p class="">{{ user.email }}</p>
+      </div>
+      <div class="">
+        <button class="btn btn-danger" (click)="signOut()">Sign out</button>
+        <button class="btn btn-danger" routerLink="/vistas">Continue</button>
+      </div>
+    </div>
   </div>
-<div class="boton-login">
-  <button type="button" class="btn face-btn" (click)="socialSignIn('facebook')"><img class="img-fluid" src="../../assets/images/facebook-logo.svg" alt="icono facebbok"> Sign in with Facebook</button>
-  <button type="button" class="btn goo-btn" (click)="socialSignIn('google')"><img class="img-fluid" src="../../assets/images/google-plus-logo.svg" alt="icono google"> Sign in with Google</button>  
-</div>
 <footer>
   <p>By signing up, you agree with the <a href="#">Terms of Service</a> and <a href="#"> Privacy Policy</a></p> 
 </footer>
-</section>

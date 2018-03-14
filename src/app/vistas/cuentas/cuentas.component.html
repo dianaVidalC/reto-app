@@ -5,7 +5,7 @@
     <img #calendar (click)=showCalendar() class="icon-calendar" src="../../../assets/images/calendar.png" alt="calendario">
     <div class="collapse navbar-collapse menu" id="navbarSupportedContent">
         <a class="navbar-brand text-light">
-            <img src="/assets/brand/bootstrap-solid.svg" width="70" height="70" class="d-inline-block align-top" alt=""><span>Jane Smith <span class="explorer">Explorer</span></span>
+            <img src={{data?.photoUrl}} width="70" height="70" class="d-inline-block align-top" alt=""><span>{{data?.name}}<span class="explorer">Explorer</span></span>
         </a>
       <ul class="navbar-nav mr-auto">
         <li class="bg-dark" style="height:3em"></li>
@@ -69,60 +69,54 @@
         (carouselLoad)="myfunc($event)">
           <ngx-item NgxCarouselItem>
             <img class="fluid-images" src="../../../assets/images/card1.png" alt="tarjeta de crédito">
-            <div class="card">
+            <div *ngFor="let items of listaMovimientos[0]"  class="card">
                 <div class="card-body">
-                  <div class="row">
-                    <div class="col-3">
-                        <img class="fluid-images" src="../../../assets/images/chat.svg" alt="">
+                    <div class="enlinea">
+                        <img class="fluid-images" src="../../../assets/images/empresa.png" alt="icono empresa">
                     </div>
-                      <div class="col-6">
-                          <p>Planilla BBVA</p>
-                          <p>Fecha</p>
-                      </div>
-                      <div class="col-3">
-                          <span>$22</span>
-                      </div>
-                  </div>       
+                    <div>
+                        <p class="text-style">{{items?.EMPRESA}}</p>
+                        <p  class="text-style">{{items?.FECHA | date:'longDate'}}</p>
+                    </div>
+                    <div>
+                        <span class="text-style">S/.{{formatoNumber(items?.MONTO)}}</span>
+                    </div>
                 </div>
             </div>
           </ngx-item>
           <ngx-item NgxCarouselItem>
             <img class="fluid-images" src="../../../assets/images/card2.png" alt="tarjeta de crédito">
-            <div class="card">
-                <div class="card-body">
-                  <div class="row">
-                    <div class="col-3">
-                        <img class="fluid-images" src="../../../assets/images/chat.svg" alt="">
+            <div *ngFor="let items of listaMovimientos[1]" class="card">
+                    <div class="card-body">
+                        <div class="enlinea">
+                            <img class="fluid-images" src="../../../assets/images/empresa.png" alt="icono empresa">
+                        </div>
+                        <div>
+                            <p class="text-style">{{items?.EMPRESA}}</p>
+                            <p class="text-style">{{items?.FECHA | date:'longDate'}}</p>
+                        </div>
+                        <div>
+                            <span class="text-style">S/.{{formatoNumber(items?.MONTO)}}</span>
+                        </div>
                     </div>
-                      <div class="col-6">
-                          <p>Planilla BBVA</p>
-                          <p>Fecha</p>
-                      </div>
-                      <div class="col-3">
-                          <span>$22</span>
-                      </div>
-                  </div>       
                 </div>
-            </div>
           </ngx-item>
           <ngx-item NgxCarouselItem>
             <img class="fluid-images" src="../../../assets/images/card3.png" alt="tarjeta de crédito">
-            <div class="card">
-                <div class="card-body">
-                  <div class="row">
-                    <div class="col-3">
-                        <img class="fluid-images" src="../../../assets/images/chat.svg" alt="">
+            <div *ngFor="let items of listaMovimientos[2]" class="card">
+                    <div class="card-body">
+                        <div class="enlinea">
+                            <img class="fluid-images" src="../../../assets/images/empresa.png" alt="icono empresa">
+                        </div>
+                        <div>
+                            <p class="text-style">{{items?.EMPRESA}}</p>
+                            <p class="text-style">{{(items?.FECHA | date:'longDate')}}</p>
+                        </div>
+                        <div>
+                            <span class="text-style">S/.{{formatoNumber(items?.MONTO)}}</span>
+                        </div>
                     </div>
-                      <div class="col-6">
-                          <p>Planilla BBVA</p>
-                          <p>Fecha</p>
-                      </div>
-                      <div class="col-3">
-                          <span>$22</span>
-                      </div>
-                  </div>       
                 </div>
-            </div>
           </ngx-item>
           <button NgxCarouselPrev class='leftRs hide'>&lt;</button>
           <button NgxCarouselNext class='rightRs'>&gt;</button>
